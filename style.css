@@ -1,0 +1,410 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #faf0f6;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    height: 100vh;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* MENU */
+
+#menu {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: #faf0f6;
+    overflow: hidden;
+}
+
+.decoration {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.decoration-1 {
+    width: 70px;
+    height: 70px;
+    background: #ffd7e8;
+    top: 35px;
+    left: 35px;
+}
+
+.decoration-2 {
+    width: 80px;
+    height: 80px;
+    background: #e1d2f5;
+    top: 40px;
+    right: 35px;
+}
+
+.decoration-3 {
+    width: 60px;
+    height: 60px;
+    background: #d2eedc;
+    bottom: 25px;
+    right: 30px;
+}
+
+.menu-panel {
+    position: relative;
+    z-index: 2;
+    width: 440px;
+    min-height: 420px;
+    padding: 35px 30px;
+    border-radius: 25px;
+    text-align: center;
+    background: #fffafd;
+    border: 3px solid #e1a0c3;
+    box-shadow: 0 12px 30px rgba(120, 70, 100, 0.12);
+}
+
+.menu-panel h1 {
+    color: #64415a;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.mini-snake {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 20px;
+}
+
+.mini-snake span {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background: #78d296;
+}
+
+.mini-snake span:nth-child(2) {
+    background: #5fbe82;
+}
+
+.mini-snake span:nth-child(3) {
+    background: #4da96f;
+}
+
+.mini-snake span:nth-child(4) {
+    background: #78d296;
+}
+
+.mini-snake span:nth-child(5) {
+    background: #5fbe82;
+}
+
+.welcome {
+    color: #785d6d;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.best-menu {
+    color: #876d7b;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.menu-button {
+    display: block;
+    width: 240px;
+    height: 50px;
+    margin: 0 auto 15px;
+    border: 3px solid;
+    border-radius: 14px;
+    font-size: 21px;
+    font-weight: bold;
+    color: #55364b;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 5px 0 #b36f96;
+}
+
+.menu-button:hover {
+    transform: translateY(-2px);
+}
+
+.menu-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #b36f96;
+}
+
+.start-button {
+    background: #ffafd7;
+    border-color: #d75f9d;
+}
+
+.exit-button {
+    background: #ebcde1;
+    border-color: #bd91ad;
+    box-shadow: 0 5px 0 #9d708c;
+}
+
+.control-info {
+    color: #917785;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+/* GAME */
+
+#game {
+    flex-direction: column;
+    background: #f9f0f6;
+}
+
+.game-header {
+    flex: 0 0 100px;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: #fff8fb;
+    border-bottom: 2px solid #ebd2df;
+    color: #644b59;
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+.best-score {
+    padding-right: 5px;
+}
+
+.game-area {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    background: #fffafd;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+
+/* TOMBOL ARAH */
+
+.direction-buttons {
+    position: absolute;
+    right: 25px;
+    bottom: 28px;
+    z-index: 30;
+    pointer-events: auto;
+}
+
+.direction-row {
+    display: flex;
+    gap: 12px;
+}
+
+.direction-button {
+    width: 54px;
+    height: 54px;
+    border: 3px solid #d769a2;
+    border-radius: 16px;
+    background: #ffb9dc;
+    color: #55364b;
+    font-size: 31px;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+    box-shadow: 0 5px 0 #ae7093;
+    transition: 0.1s;
+}
+
+#upBtn {
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.direction-button:hover {
+    background: #ffa5d1;
+    transform: translateY(-2px);
+}
+
+.direction-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #ae7093;
+}
+
+.keyboard-info {
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    color: #967e8b;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+
+/* GAME OVER */
+
+.game-over {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(80, 60, 75, 0.55);
+}
+
+.game-over.show {
+    display: flex;
+}
+
+.game-over-panel {
+    width: 460px;
+    min-height: 290px;
+    padding: 40px 25px;
+    text-align: center;
+    background: #fff8fc;
+    border: 3px solid #e1a0c3;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(50, 30, 45, 0.2);
+}
+
+.game-over-panel h2 {
+    color: #6e415f;
+    font-size: 43px;
+    margin-bottom: 18px;
+}
+
+.game-over-panel p {
+    color: #806676;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.game-over-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-over-buttons .menu-button {
+    width: 150px;
+    margin: 0;
+    font-size: 17px;
+}
+
+
+/* HP */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .menu-panel {
+        width: calc(100% - 35px);
+        min-height: 400px;
+        padding: 30px 20px;
+    }
+
+    .menu-panel h1 {
+        font-size: 40px;
+    }
+
+    .welcome {
+        font-size: 18px;
+    }
+
+    .game-header {
+        height: 80px;
+        flex-basis: 80px;
+        padding: 10px 15px;
+        font-size: 17px;
+    }
+
+    .direction-buttons {
+        right: 15px;
+        bottom: 25px;
+    }
+
+    .direction-button {
+        width: 52px;
+        height: 52px;
+        font-size: 28px;
+    }
+
+    .keyboard-info {
+        display: none;
+    }
+
+    .game-over-panel {
+        width: calc(100% - 35px);
+        min-height: 270px;
+        padding: 35px 15px;
+    }
+
+    .game-over-panel h2 {
+        font-size: 36px;
+    }
+
+    .game-over-panel p {
+        font-size: 19px;
+    }
+
+    .game-over-buttons {
+        gap: 12px;
+    }
+
+    .game-over-buttons .menu-button {
+        width: 135px;
+        font-size: 15px;
+    }
+}
+
+
+/* HP PORTRAIT */
+
+@media (max-width: 500px) and (orientation: portrait) {
+
+    .direction-buttons {
+        right: 12px;
+        bottom: 22px;
+    }
+
+    .direction-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .game-over-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+    }
+
+    .game-over-buttons .menu-button {
+        width: 190px;
+    }
+}
