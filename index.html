@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-container">
+
+    <!-- MENU UTAMA -->
+    <section id="menu" class="screen active">
+
+        <div class="decor decor-1"></div>
+        <div class="decor decor-2"></div>
+        <div class="decor decor-3"></div>
+
+        <div class="menu-panel">
+
+            <h1>SNAKE GAME</h1>
+
+            <div class="mini-snake">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <p class="welcome">
+                Selamat datang di Cute Snake!
+            </p>
+
+            <p class="best">
+                Best Score : <span id="menuBest">0</span>
+            </p>
+
+            <button id="startBtn" class="start-btn">
+                MULAI GAME
+            </button>
+
+            <button id="exitBtn" class="exit-btn">
+                KELUAR
+            </button>
+
+            <p class="control-info">
+                WASD / Arrow Keys / Tombol Arah
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="screen">
+
+        <!-- HEADER -->
+        <header class="game-header">
+
+            <div class="score-area">
+                <div>
+                    Score : <span id="score">0</span>
+                </div>
+
+                <div>
+                    Level : <span id="level">1</span>
+                </div>
+            </div>
+
+            <div class="best-score">
+                Best : <span id="bestScore">0</span>
+            </div>
+
+        </header>
+
+        <!-- AREA GAME -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- TOMBOL ARAH -->
+        <div class="direction-buttons">
+
+            <button id="upBtn" type="button">
+                ↑
+            </button>
+
+            <div class="direction-row">
+
+                <button id="leftBtn" type="button">
+                    ←
+                </button>
+
+                <button id="downBtn" type="button">
+                    ↓
+                </button>
+
+                <button id="rightBtn" type="button">
+                    →
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="keyboard-info">
+            WASD / Arrow Keys
+        </div>
+
+        <!-- GAME OVER -->
+        <div id="gameOver" class="game-over">
+
+            <div class="game-over-panel">
+
+                <h2>GAME OVER</h2>
+
+                <p>
+                    Score kamu :
+                    <span id="finalScore">0</span>
+                </p>
+
+                <div class="game-over-buttons">
+
+                    <button id="restartBtn" type="button">
+                        MAIN LAGI
+                    </button>
+
+                    <button id="gameExitBtn" type="button">
+                        KELUAR
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
